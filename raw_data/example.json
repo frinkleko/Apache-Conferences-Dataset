@@ -1,0 +1,663 @@
+{
+    "id": "0CDKgyYaxC8",
+    "original": "UCPg8mSkfeJ",
+    "number": 4631,
+    "cdate": 1621629930002,
+    "ddate": null,
+    "tcdate": 1621629930002,
+    "tmdate": 1697937576167,
+    "tddate": null,
+    "forum": "0CDKgyYaxC8",
+    "replyto": null,
+    "invitation": "NeurIPS.cc/2021/Conference/-/Blind_Submission",
+    "content": {
+        "title": "Evaluating Gradient Inversion Attacks and Defenses in Federated Learning",
+        "authorids": [
+            "~Yangsibo_Huang2",
+            "~Samyak_Gupta1",
+            "~Zhao_Song5",
+            "~Kai_Li8",
+            "~Sanjeev_Arora1"
+        ],
+        "authors": [
+            "Yangsibo Huang",
+            "Samyak Gupta",
+            "Zhao Song",
+            "Kai Li",
+            "Sanjeev Arora"
+        ],
+        "keywords": [
+            "Federated learning",
+            "gradient inversion",
+            "deep leakage from gradients"
+        ],
+        "abstract": "Gradient inversion attack (or input recovery from gradient) is an emerging threat to the security and privacy preservation of Federated learning, whereby malicious eavesdroppers or participants in the protocol can recover (partially) the clients' private data. This paper evaluates existing attacks and defenses. We find that some attacks make strong assumptions about the setup. Relaxing such assumptions can substantially weaken these attacks. We then evaluate the benefits of three proposed defense mechanisms against gradient inversion attacks. We show the trade-offs of privacy leakage and data utility of these defense methods, and find that combining them in an appropriate manner makes the attack less effective, even under the original strong assumptions. We also estimate the computation cost of end-to-end recovery of a single image under each evaluated defense. Our findings suggest that the state-of-the-art attacks can currently be defended against with minor data utility loss, as summarized in a list of potential strategies.",
+        "submission_history": "",
+        "code_of_conduct": "I certify that all co-authors of this work have read and commit to adhering to the NeurIPS Statement on Ethics, Fairness, Inclusivity, and Code of Conduct.",
+        "paperhash": "huang|evaluating_gradient_inversion_attacks_and_defenses_in_federated_learning",
+        "pdf": "/pdf/73ed67f462a136d9a8071ac89807ec23875213dc.pdf",
+        "checklist": "",
+        "supplementary_material": "/attachment/484c50ac4de31b28c8f0309cc32d7a386d1e76d9.pdf",
+        "thumbnail": "",
+        "community_implementations": "[![CatalyzeX](/images/catalyzex_icon.svg) 2 code implementations](https://www.catalyzex.com/paper/arxiv:2112.00059/code)",
+        "submission_history_-_venue_and_year": "",
+        "submission_history_-_improvements_made": "",
+        "_bibtex": "@inproceedings{\nhuang2021evaluating,\ntitle={Evaluating Gradient Inversion Attacks and Defenses in Federated Learning},\nauthor={Yangsibo Huang and Samyak Gupta and Zhao Song and Kai Li and Sanjeev Arora},\nbooktitle={Advances in Neural Information Processing Systems},\neditor={A. Beygelzimer and Y. Dauphin and P. Liang and J. Wortman Vaughan},\nyear={2021},\nurl={https://openreview.net/forum?id=0CDKgyYaxC8}\n}",
+        "venue": "NeurIPS 2021 Oral",
+        "venueid": "NeurIPS.cc/2021/Conference"
+    },
+    "signatures": [
+        "NeurIPS.cc/2021/Conference"
+    ],
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "writers": [
+        "NeurIPS.cc/2021/Conference"
+    ],
+    "mdate": null,
+    "tauthor": "OpenReview.net",
+    "pdate": 1636492762501,
+    "odate": 1636492762501,
+    "details": {
+        "overwriting": [],
+        "tags": [],
+        "writable": false,
+        "replyCount": 12,
+        "directReplyCount": 6,
+        "revisions": true,
+        "replies": [
+            {
+                "id": "CThAPUiPNXH",
+                "original": null,
+                "number": 1,
+                "cdate": 1626022127555,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626022127555,
+                "tmdate": 1626022127555,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Review",
+                "content": {
+                    "rating": "7: Good paper, accept",
+                    "confidence": "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.",
+                    "summary": "This paper evaluates existing attacks and defenses to gradient inversion attack, where eavesdropper of the protocol could steal private data from the clients. It re-evaluates attacks under relaxed assumptions, the effectiveness of the defenses, and proposes actionable ways of combining defenses under realistic assumptions to have more robust FL. The paper clarifies the state of the art in gradient inversion attacks and sheds light on best practices for good defense deployment",
+                    "main_review": "# Strengths\n- Understanding and systematically evaluating strengths and weaknesses in the state of the art is crucial for arising fields\n- Authors adjust threat model to support the idea that gradient inversion attacks are much less realistic in practice\n- The paper remains always very practical, and contains many actionable points well-summarized in the conclusions.\n- Code is planned of being released\n\n# Weaknesses\n- Focused only on image classification tasks \n- The experimental testbed is a bit unclear, which datasets are used in which parts\n- Only 50 images on CIFAR-10 used for the re-evaluation of the defenses (line 241)\n\n# Detailed comments\n\nThe paper studies a very important problem and takes time to re-evaluate the current state of attacks and defenses in gradient inversion attacks. Privacy is of utmost importance, and it is somehow hard to realize what are the pros/cons of existing methods. The authors conduct a very systematic and thorough evaluation, with very good and convincing arguments regarding the revision of existing attack assumptions, to help reason better about more realistic scenarios in-the-wild. Nevertheless, the paper also does a great job at finding interesting properties about more secure deployments, and greatly summarized actionable points for both practitioners and researcher. \n\nNevertheless, I do have a couple of major concerns that I'd like the authors to discuss a bit better. \n\n## Experimental testbed\n\nThe datasets used in the experiments are not always fully clear. Of course authors are using CIFAR-10 (mostly) and a bit of ImageNet, but it is not always clear *how much* of it they are using for the evaluation. \n\nFor example, are Figures 1 and 2 contain some images used for the actual attacks and proof-of-concept evaluation of effectiveness in presence of relaxed assumptions. Are these the only adversarial examples generated? This sounds a bit 'small' in terms of chosen images. \n\nOn line 241, you mention:\n> We use a subset of 50 CIFAR-10 images to evaluate the attack performance.\n\nThis seems quite 'limited', and possibly introducing some unintentional sampling bias in the evaluation that may threaten the empirical validity of the results.\n\nI appreciate that the Appendix has additional settings, but I wonder how much of the study may be affected/threatened by the limited sampling of the dataset for attacks. \n\n\n## Task\n\nThe paper is focused only in the **image classification task**, so it would be interesting to understand whether the same properties/conclusions would hold also in other domains where deep neural networks are successful, for example speech recognition in smart home devices. ",
+                    "limitations_and_societal_impact": "I feel the authors should emphasize more limitations related to the number of adversarial examples generated.",
+                    "ethical_concerns": "None",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [],
+                    "time_spent_reviewing": "5",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_5LCL"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_5LCL"
+                ]
+            },
+            {
+                "id": "Fjg8k_nb53",
+                "original": null,
+                "number": 2,
+                "cdate": 1626414881664,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626414881664,
+                "tmdate": 1629224877304,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Review",
+                "content": {
+                    "rating": "7: Good paper, accept",
+                    "confidence": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.",
+                    "summary": "The paper presents an empirical investigation of existing gradient inversion attacks and defenses in federated learning setting. The authors point out that current attacks make strong assumptions such as knowing batch norm stats or private labels, whose absence would weaken the attacks. The authors also conclude with a list of best practices of doing conducting safe federated learning via comprehensive review and experiments on current defense methods.",
+                    "main_review": "This paper is well written and organized. Advancing state-of-the-art is important, but checking caveats in current methods is critical as well. Summarizing current assumptions made in current gradient inversion attacks makes it easier for future research to design fair and reasonable experiments. The practices lead by experiment results of various defenses are also valuable. However, although the conclusions are interesting, I wonder if the results are strong enough. Instead of doing experiments on a single dataset (CIFAR-10) with a single architecture (ResNet18), I would like to see more diverse settings, either easier (MNIST with MLP) or more complex (ImageNet with deeper ResNets). ",
+                    "limitations_and_societal_impact": "No, the limitations and potential negative societal impact are not clear in Section 6. ",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [],
+                    "time_spent_reviewing": "3",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_PVFu"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_PVFu"
+                ]
+            },
+            {
+                "id": "0LVYS7pkUxj",
+                "original": null,
+                "number": 3,
+                "cdate": 1626487506276,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626487506276,
+                "tmdate": 1626487759890,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Review",
+                "content": {
+                    "rating": "6: Marginally above the acceptance threshold",
+                    "confidence": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.",
+                    "summary": "The authors of this paper provide a systematical analysis for the robustness of federated learning. They first show that current strongest gradient inversion attacks cannot perform well under relaxed assumptions and then demonstrate a new defense that can make the attacks less effective, even under their original assumptions. Sufficient experiments provide strong support for their conclusions. ",
+                    "main_review": "\n1. The authors reveal that the strong assumptions in the current strongest attack may not realistic and demonstrate even the current strongest attack cannot perform well under the relaxed assumption. The conclusions encourage that future research on gradient inversion should be evaluated in a more realistic setting.  \n2. The authors provide some simple methods to improve the robustness of federated learning against gradient inversion attacks. They get strong results with a combination of several simple practices, which can improve the security against the strongest attack under the strong assumption.  \n3. The paper is well organized and easy to understand. The findings and the proposed defenses and be used to evaluate the robustness of future federated learning systems. ",
+                    "limitations_and_societal_impact": "1. Please fix the citation (geiping2020) in Line 89 of the manuscripts. \n2. I like the presentation of this paper: no fancy tricks but deliver clear and practical messages for future research. But the two parts (contribution 1 vs contribution 2, 3) are kind of separate from each other. I am suggesting the authors find a good way to combine them into a single story. \n3. The experiment and analysis are mainly applied to toy datasets with low-resolution images. I am wondering whether those conclusions are still valid on high-resolution images. ",
+                    "ethical_concerns": "None",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [
+                        "Responsible Research Practice (e.g., IRB, documentation, research ethics)",
+                        "I don’t know"
+                    ],
+                    "time_spent_reviewing": "5 hours",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_XbmS"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_XbmS"
+                ]
+            },
+            {
+                "id": "waSdX8cTo-",
+                "original": null,
+                "number": 4,
+                "cdate": 1626793150771,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626793150771,
+                "tmdate": 1626793150771,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Review",
+                "content": {
+                    "rating": "9: Top 15% of accepted NeurIPS papers, strong accept",
+                    "confidence": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.",
+                    "summary": "This paper has empirical study of federated learning with the following contributions:\n1. It evaluates the state-of-the-art gradient attack algorithms under weaker assumptions. For example, attackers do not have access to batch norm statistics and some private labels. Under these weaker assumptions, these attack algorithms perform significantly worse.\n2. It experiments various defense algorithms. For example, gradient pruning, MixUp, Weak-InstaHide, with the current state-of-the-art Carlini et al. 2020 attack algorithm. Further, it designs and evaluates a new method which combines various defense algorithms. Through empirical evaluations, it is shown that when attack batch size is 1, W-InstaHide is highly useful, and when attack batch size increases, the combined gradient pruning+W-InstaHide gives the best result.",
+                    "main_review": "Pros:\n1. This paper demonstrates some practical perspective of the state-of-the-art gradient attack algorithms by removing certain strong assumptions and experimenting in more general conditions. Its empirical result is strong and clear that as soon as these strong assumptions are removed, the SOTA attack algorithms no longer perform that well. That sheds lights on how to improve the security of a federated learning system, i.e., do not share statistics like batch norm or certain private labels.\n2. From a defense perspective, this paper considers a novel scheme which combines various different defense algorithms, such as gradient pruning, MixUp and InstaHide to achieve a better defense performance compared to any single defense algorithm, especially when attack batch size is large.\n3. Previous works either focus on encoding private dataset directly or encoding the gradient information. This paper is a unified review of these two different methods, and combines them to improve the overall defense performance.\n\nCons:\nThe line 233 is a bit confusing: “InstaHide further encodes a MixUp image by randomly flipping its pixel signs. We are only mixing private images in our experiments, which is a weaker version of InstaHide”. Does this mean that W-InstaHide does not use random sign flips? If so, what’s the difference between MixUp and W-InstaHide? I believe there should be a difference between MixUp and W-InstaHide. However, based on the write-up, it’s a bit unclear about such differences and hence confusing. It should be further clarified.",
+                    "limitations_and_societal_impact": "I did not realize any potential negative societal impact of the work.",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [],
+                    "time_spent_reviewing": "6 hours",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_g1LK"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_g1LK"
+                ]
+            },
+            {
+                "id": "nCIXpardNxk",
+                "original": null,
+                "number": 1,
+                "cdate": 1628554254799,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1628554254799,
+                "tmdate": 1628607754192,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "waSdX8cTo-",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Comment",
+                "content": {
+                    "title": "Response to Reviewer g1LK",
+                    "comment": "We thank the reviewer for your careful review and detailed summary of our manuscript. We have tried to address all your comments in the following. We highly appreciate knowing if our responses have addressed your initial comments. \n\n> The line 233 is a bit confusing ... based on the write-up, it’s a bit unclear about such differences and hence confusing. It should be further clarified.\n\nWe will clarify this. InstaHide paper (Huang et al. 2020) proposes two versions: Inter-InstaHide and Intra-InstaHide.  The only difference is that at the mixup step, Inter-Instahide mixes up an image with images from a public dataset, whereas Intra-InstaHide mixes with private images.   Both versions apply a random sign flipping pattern on each mixed image. The latter is called W-InstaHide in our submission. To reduce confusion and be consistent with (Huang et al. 2020), we have rewritten the sentence, and changed W-InstaHide to Intra-InstaHide in our updated version. \n"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ]
+            },
+            {
+                "id": "KQ-lk52pFvJ",
+                "original": null,
+                "number": 2,
+                "cdate": 1628554943482,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1628554943482,
+                "tmdate": 1628557105427,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "CThAPUiPNXH",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Comment",
+                "content": {
+                    "title": "Response to Reviewer 5LCL",
+                    "comment": "We thank the reviewer for the careful review and valuable feedback of our paper.  We have tried to address all your comments in the following. Please let us know if you feel we haven’t fully addressed your comments.     \n\n\n### **Q1. Explanation for focusing on image classification task**\n> The paper is focused only in the image classification task, so it would be interesting to understand whether the same properties/conclusions would hold also in other domains where deep neural networks are successful, for example speech recognition in smart home devices.\n\nOur evaluation focused on the image classification task since most existing gradient inversion attacks [1,2,3,4] are based on this task. We agree that restricting the evaluation to a single task is a potential limitation, and have emphasized this in the conclusion section of the updated manuscript. We also believe evaluating defenses and attacks for other tasks such as speech recognition is an important future work, once mature gradient inversion attacks for these tasks are proposed.\n\n\n### **Q2. Clarification of images used for evaluation in different parts of the paper**\n> The datasets used in the experiments are not always fully clear\n\nWe thank the reviewer for suggesting us to improve the clarity of experimental testbeds in different parts of the manuscript. In our experiments, we’ve created two subsets of images for evaluation:\n- CIFAR-subset: 50 images that are randomly selected from the CIFAR-10 dataset.\n- ImageNet-subset: 50 images that are randomly selected from the ImageNet dataset.\n\nThe table below summarizes the set of images used in each figure/table. We’ve clarified this issue and added this table to the appendix in our updated manuscript.\n\n  \n| Figure/Table | Comments                                                                                                                                                                                                                                                                                                           |   |\n|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|\n| Figure 1a           | We’ve tuned hyperparams for the attack (see Appendix A) and carried out evaluations on the whole CIFAR-subset. The first sampled batch of size 16 from CIFAR-subset was used in Figure 1a to demonstrate the quality of recovery for low-resolution images when BatchNorm statistics are not assumed to be known.  |   |\n| Figure 1b           | We’ve tuned hyperparams for the attack (see Appendix A) and carried out evaluations on the whole ImageNet-subset.   The best-reconstructed image in ImageNet-subset was used in Figure 1b to demonstrate the quality of recovery for high-resolution images when BatchNorm statistics are not assumed to be known. |   |\n| Figure 2a           | Percentages of class labels per batch were evaluated over the entire CIFAR10 dataset, for a random seed.                                                                                                                                                                                                           |   |\n| Figure 2b           | We’ve tuned the hyperparams for the attack (see Appendix A). The first sampled batch of size 16 was used in Figure 2b to demonstrate the quality of recovery when labels are not assumed to be known.                                                                                                              |   |\n| Table 2 & Figure 3  | We’ve tuned hyperparams for the attack (see Appendix A) and carried out evaluations on the whole CIFAR-subset. Table 2 summarizes the performance of the attack on the whole CIFAR-subset and Figure 3 shows example images.        \n|   |\n\n        \n      \n### **Q3. Why we use 50 random CIFAR-10 images to evaluate the attack performance**\n> This (using a subset of 50 CIFAR-10 images to evaluate the attack performance) seems quite 'limited', and possibly introducing some unintentional sampling bias in the evaluation that may threaten the empirical validity of the results.\n\nWe have evaluated the attacks and defenses on a randomly chosen subset of 50 CIFAR-10 images because running the attack on the whole dataset is computationally expensive (see analysis in Section 5.4 of our paper). The table below shows the mean and variance of the LPIPS score of the recovered images across 50-image subsets chosen by different random seeds. The closeness of the results suggests that testing on 50 CIFAR-10 images does not introduce a strong sampling bias. We will add this table to the appendix of the updated manuscript.\n\n|                     | Seed 1       | Seed 2       | Seed 3       | Seed 4       | Seed 5       |\n|---------------------|--------------|--------------|--------------|--------------|--------------|\n| LPIPS (mean +- std) | .181 +- .057 | .184 +- .065 | .189 +- .069 | .197 +- .084 | .182 +- .053 |\n| LPIPS (best)        | .090         | .065         | .069         | .086         | .081         |\n|   |\n\n> I feel the authors should emphasize more limitations related to the number of adversarial examples generated.\n\nWe will mention this as a potential limitation in the conclusion section of the updated manuscript. \n    \n    \n*References*:\n\n[1] Ligeng Zhu, Zhijian Liu, and Song Han. Deep leakage from gradients. NeurIPS 2019.  \n\n[2] Bo Zhao, Konda Reddy Mopuri, and Hakan Bilen.  iDLG:  Improved deep leakage from gradients. arXiv preprint arXiv:2001.02610, 2020. \n\n[3] Jonas Geiping, Hartmut Bauermeister, Hannah Dröge, and Michael Moeller. Inverting gradients–how easy is it to break privacy in federated learning?  NeurIPS 2020. \n\n[4] Hongxu Yin, Arun Mallya, Arash Vahdat, Jose M Alvarez, Jan Kautz, and Pavlo Molchanov.  See through gradients:  Image batch recovery via gradinversion. CVPR 2021.\n\n\n"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ]
+            },
+            {
+                "id": "0vubiSCIgm",
+                "original": null,
+                "number": 3,
+                "cdate": 1628555268151,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1628555268151,
+                "tmdate": 1628607827979,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0LVYS7pkUxj",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Comment",
+                "content": {
+                    "title": "Response to Reviewer XbmS  ",
+                    "comment": "We thank the reviewer for the careful review and valuable feedback of our paper.  We have tried to address all your comments in the following. Please let us know if you feel we haven’t fully addressed your comments.  We will be happy to address them further.   \n\n### **Q1. Explanation for insufficient evaluation with high-resolution images**\n> The experiment and analysis are mainly applied to toy datasets with low-resolution images. I am wondering whether those conclusions are still valid on high-resolution images.\n\nWe thank the reviewer for pointing this out and have addressed this concern in an individual post to all reviewers: https://openreview.net/forum?id=0CDKgyYaxC8&noteId=knHerZqdADx\n\n### **Q2. A proposal to improve the storytelling**\n> the two parts (contribution 1 vs contribution 2, 3) are kind of separate from each other. I am suggesting the authors find a good way to combine them into a single story\n\nWe agree with the reviewer that the two parts are loosely connected in the introduction. We plan to rewrite the connection of the two parts as follows:\n\nThere are two important aspects in preventing gradient inversion attacks in federated learning. The first is to **use secure configurations for federated learning**, and the second is to **apply defensive mechanisms**. \n\n- In the first part of the paper, we show that the state-of-the-art gradient inversion attacks (Section 3) make two strong assumptions (sharing BatchNorm statistics and using a small batch size). By configuring or implementing a federated learning setting to ensure these assumptions no longer hold will significantly weaken the attacks (e.g. not sharing the BatchNorm statistics, and increasing the batch size or accumulate gradients of multiple steps to make it harder to infer the label).\n- In the second part of the paper, we summarize various defense methods (Section 4) and systematically evaluate (Section 5) some of their performance of defending against a state-of-the-art gradient inversion attack, and present their data utility and privacy leakage trade-offs. \n\nFinally, we will present best practices based on these two aspects.\n\n### **Q3. Fix the typo**\n\n> Please fix the citation (geiping2020) in Line 89 of the manuscripts.\n\nWe’ve fixed the typo in the updated manuscript.\n\n"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ]
+            },
+            {
+                "id": "d8YU41JMGP",
+                "original": null,
+                "number": 4,
+                "cdate": 1628556063574,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1628556063574,
+                "tmdate": 1628608082910,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "Fjg8k_nb53",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Comment",
+                "content": {
+                    "title": "Response to Reviewer PVFu",
+                    "comment": "We thank the reviewer for the helpful feedback. We have tried to address all your comments in the following. Please let us know if you feel we haven’t fully addressed your comments.  We will be happy to address them further. \n\n\n\n### **Q1. Explanation for insufficient evaluation with a more complex setting**\n\n> Instead of doing experiments on a single dataset (CIFAR-10) with a single architecture (ResNet18), I would like to see more diverse settings, either easier (MNIST with MLP) or **more complex (ImageNet with deeper ResNets)**.\n\nWe thank the reviewer for pointing this out and have addressed this concern in an individual post to all reviewers: https://openreview.net/forum?id=0CDKgyYaxC8&noteId=knHerZqdADx\n\n### **Q2. Results in an easier setting**\n\n> Instead of doing experiments on a single dataset (CIFAR-10) with a single architecture (ResNet18), I would like to see more diverse settings, either **easier (MNIST with MLP)** or more complex (ImageNet with deeper ResNets).\n\nWe thank the reviewer for suggesting us to evaluate with an easier setting. We’ve repeated our main experiments of defenses and attacks (Table 1 & Figure 2 of the manuscript) on MNIST dataset with a simple 6-layer ConvNet model. We chose a simple ConvNet instead of the MLP model (which is suggested by the reviewer) because the ConvNet gives a higher test accuracy on MNIST, thus allowing us to evaluate defenses with a wider range of parameters. Note that the simple ConvNet does not contain BatchNorm layers.\n\n**2.1 Experimental setup**\nSimilar to the setup in our manuscript, we evaluate the following defenses on the MNIST dataset with a 6-layer ConvNet architecture against **the strongest attack** (private labels known): \n- **GradPrune** (gradient pruning): gradient pruning sets gradients of small magnitudes to zero. We vary the pruning ratio $p$ in {$0.5, 0.7, 0.9, 0.95, 0.99, 0.999, 0.9999$}. \n- **MixUp**: MixUp encodes a private image by linearly combining it with $k-1$ other images from the training set. We vary $k$ in {$4, 6$}, and set the upper bound of a single coefficient to $0.65$ (coefficients sum to $1$). \n- **Weak-InstaHide** (W-InstaHide): we vary $k$ in {$4, 6$}, and set the upper bound of a single coefficient to $0.65$. \nA combination of GradPrune and MixUp/W-InstaHide.\n\nWe run the evaluation against **the strongest attack** to estimate the upper bound of privacy leakage. Specifically, we assume the attacker knows private labels, as well as the indices of mixed images and mixing coefficients for MixUp and W-InstaHide (see lines 241~252 of our manuscript). The sample results shown below are evaluated with batch size being 1, but we are happy to include more results for larger batch sizes in the updated version of the manuscript. \n\nSame to our manuscript, we use LPIPS score as the metric, where higher values suggest more mismatch between the reconstructed image and the original image (less privacy leakage).\n\n**2.2 Results and discussion**\n\nResults of batch size 1 are shown in Table 1. We have also visualized the reconstructions, but are not allowed to upload them here due to the rebuttal guidelines. We will include both tables and figures in the updated version of our manuscript.\n\n*Table 1. Utility-security trade-off of different defenses. We train a simple ConvNet model on the whole MNIST dataset, and report the averaged test accuracy and running time of 3 independent runs. We evaluate the attack on a subset of 50 MNIST images, and report the privacy leakage under the attack measured by LPIPS (lower values suggest more leakage). We mark the least-leakage defense measured by the metric in **bold**.*\n\n|                                        \t| **No defense** \t|       \t|       \t|       \t| **GradPrune** \t|        \t|         \t|          \t|       \t| **MixUp** \t|             \t|       \t| **W-InstaHide** \t|             \t|\n|----------------------------------------\t|------------\t|-------\t|-------\t|-------\t|-----------\t|--------\t|---------\t|----------\t|-------\t|-------\t|-------------\t|-------\t|-------------\t|-------------\t|\n|                                        \t|            \t| p=0.5 \t| p=0.7 \t| p=0.9 \t| p=0.95    \t| p=0.99 \t| p=0.999 \t| p=0.9999 \t| k=4   \t| k=6   \t| k=4, p=0.99 \t| k=4   \t| k=6         \t| k=4, p=0.99 \t|\n| **Test accuracy**                         \t| 99.41      \t| 99.35 \t| 99.34 \t| 99.28 \t| 99.17     \t| 98.63  \t| 96.15   \t| 89.17    \t| 99.20 \t| 98.80 \t| 97.81       \t| 99.08 \t| 98.08       \t| 96.88       \t|\n| |\n| **Avg. LPIPS**                             \t| 0.28       \t| 0.28  \t| 0.29  \t| 0.31  \t| 0.33      \t| 0.37   \t| 0.45    \t| 0.54     \t| 0.53  \t| 0.55  \t| 0.59        \t| 0.67  \t| 0.74        \t| **0.76**        \t|\n| **Best LPIPS**                             \t| 0.10       \t| 0.11  \t| 0.10  \t| 0.12  \t| 0.19      \t| 0.22   \t| 0.31    \t| 0.31     \t| 0.40  \t| 0.47  \t| 0.45        \t| 0.54  \t| **0.64**        \t| **0.64**        \t|\n| **(LPIPS std)**                           \t| 0.12       \t| 0.12  \t| 0.12  \t| 0.11  \t| 0.09      \t| 0.08   \t| 0.07    \t| 0.06     \t| 0.05  \t| 0.04  \t| 0.04        \t| 0.06  \t| 0.04        \t| 0.05        \t|\n| |\n\nConsistent with our findings in the manuscript, the new results suggest that for MNIST with a simple 6-layer ConvNet,\n- Defending the strongest attack with gradient pruning may require the pruning ratio $p ≥ 0.9999$. As a trade-off, such a high pruning ratio would introduce an accuracy loss of around 10% (see Table 1). \n- MixUp with $k=4$ or $k=6$ only have minor impacts (<1%) on test accuracy, but they are not sufficient to defend the gradient inversion attack. Combining MixUp ($k=4$) with gradient pruning ($p=0.99$) improves the defense, however, the reconstructed digits are still highly recognizable.\n- W-InstaHide alone (with $k=4$ or $k=6$) gives much better defending performance than MixUp and GradPrune (measured by the LPIPS score), but with an accuracy loss of <1.5%. Combining W-InstaHide ($k=4$) with gradient pruning ($p=0.99$) further improves the defense and makes the reconstruction almost unrecognizable.\n\n\n\n### **Q3. Limitations and potential negative societal impact**\n> the limitations and potential negative societal impact are not clear in Section 6.\n\nWe thank the reviewer for pointing this out and will discuss more limitations including limited evaluation with high-resolution images, in the updated manuscript.\n"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ]
+            },
+            {
+                "id": "knHerZqdADx",
+                "original": null,
+                "number": 5,
+                "cdate": 1628556666757,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1628556666757,
+                "tmdate": 1628556894004,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Comment",
+                "content": {
+                    "title": "Thanks for your valuable feedback and a summary of comments",
+                    "comment": "We thank AC and all reviewers for their time and valuable feedback, and for the recognition that our manuscript \"*demonstrates some practical perspective of the state-of-the-art gradient attack algorithms*\", and the \"*empirical result is strong and clear*\". Reviewers also highlight that our evaluation \"*contains many actionable points*\", and ​\"*delivers clear and practical messages for future research*\". \n\n\n\n### **A common concern (Reviewer XbmS Q2 & Reviewer PVFu Q1): evaluation is mainly on CIFAR-10; how about  high-resolution images?**\n\n\nWe've used both CIFAR-10 and ImageNet in the evaluation of strong assumptions (Section 3). However, the current SOTA attacks mainly work on low-resolution images and achieve poor performance on high-resolution images (see Figure 1). Therefore evaluation on low-resolution images makes the most sense in trying to understand whether current attacks can be mitigated.\n\nThe updated manuscript now notes that a systematic evaluation of high-resolution images will be important future work **once stronger attacks are proposed.** We are also happy to incorporate new attacks into our current implementation and evaluations/comparisons. \n\n### **Individual comments**\nWe have summarized other comments and our responses as below (corresponding reviewer IDs are provided in parenthesis). Detailed responses can be found in posts to individual reviewers.\n\n1. **Clarification about the experimental setup**: we’ve clarified the experimental  testbed for each evaluation in the manuscript (Reviewer 5LCL, Q2). We also showed that the selected testbeds do not introduce a strong sampling bias (Reviewer 5LCL, Q3).\n\n2. **Presenting results in an easier setting**: we’ve evaluated attacks and defenses with an easier setting: MNIST + a simple ConvNet (Reviewer PVFu, Q2). The results are consistent with our findings in the manuscript.  \n\n3. **Improving the storytelling**: we’ve proposed a way to improve the current writing to better connect the two parts (contribution 1 vs contribution 2, 3) of the manuscript (Reviewer XbmS, Q2).\n\n4. **Discussing more future work**: we’ve discussed more future works in the updated manuscript, including extending the evaluation to high-resolution images (Reviewer XbmS Q2 & Reviewer PVFu Q1), or to language tasks (Reviewer 5LCL, Q1).\n\n5. We’ve also fixed some typos (Reviewer XbmS, Q3) and rewritten sentences that may cause confusion (Reviewer g1LK, Q1).\n"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ]
+            },
+            {
+                "id": "8QwlOeSIJQq",
+                "original": null,
+                "number": 7,
+                "cdate": 1629225065808,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1629225065808,
+                "tmdate": 1629225065808,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "d8YU41JMGP",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Comment",
+                "content": {
+                    "title": "Follow-up",
+                    "comment": "Thank you for the detailed explanation and the additional experiments and analysis, these have strengthened the paper a lot. My concerns are fully addressed and I am willing to raise my score from 5 to 7."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_PVFu"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_PVFu"
+                ]
+            },
+            {
+                "id": "mdtJhWgHxj",
+                "original": null,
+                "number": 8,
+                "cdate": 1629274680282,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1629274680282,
+                "tmdate": 1629274680282,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "KQ-lk52pFvJ",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Comment",
+                "content": {
+                    "title": "Reply to rebuttal",
+                    "comment": "Thank you for your clarifications. I confirm my positive opinion of the paper. \n\nIt'd be great if you could then include content from this answer in the actual paper, so that these aspects are better clarified. "
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_5LCL"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_5LCL"
+                ]
+            },
+            {
+                "id": "tENjZ-2Qq7n",
+                "original": null,
+                "number": 1,
+                "cdate": 1632776823686,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1632776823686,
+                "tmdate": 1632776823686,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Decision",
+                "content": {
+                    "title": "Paper Decision",
+                    "decision": "Accept (Oral)",
+                    "comment": "The reviewers are satisfied by the responses made by the authors. The authors are strongly encouraged to include the additional experiments and results they provided in the rebuttal phase to their final manuscript."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Program_Chairs"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference/Program_Chairs"
+                ]
+            }
+        ],
+        "directReplies": [
+            {
+                "id": "CThAPUiPNXH",
+                "original": null,
+                "number": 1,
+                "cdate": 1626022127555,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626022127555,
+                "tmdate": 1626022127555,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Review",
+                "content": {
+                    "rating": "7: Good paper, accept",
+                    "confidence": "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.",
+                    "summary": "This paper evaluates existing attacks and defenses to gradient inversion attack, where eavesdropper of the protocol could steal private data from the clients. It re-evaluates attacks under relaxed assumptions, the effectiveness of the defenses, and proposes actionable ways of combining defenses under realistic assumptions to have more robust FL. The paper clarifies the state of the art in gradient inversion attacks and sheds light on best practices for good defense deployment",
+                    "main_review": "# Strengths\n- Understanding and systematically evaluating strengths and weaknesses in the state of the art is crucial for arising fields\n- Authors adjust threat model to support the idea that gradient inversion attacks are much less realistic in practice\n- The paper remains always very practical, and contains many actionable points well-summarized in the conclusions.\n- Code is planned of being released\n\n# Weaknesses\n- Focused only on image classification tasks \n- The experimental testbed is a bit unclear, which datasets are used in which parts\n- Only 50 images on CIFAR-10 used for the re-evaluation of the defenses (line 241)\n\n# Detailed comments\n\nThe paper studies a very important problem and takes time to re-evaluate the current state of attacks and defenses in gradient inversion attacks. Privacy is of utmost importance, and it is somehow hard to realize what are the pros/cons of existing methods. The authors conduct a very systematic and thorough evaluation, with very good and convincing arguments regarding the revision of existing attack assumptions, to help reason better about more realistic scenarios in-the-wild. Nevertheless, the paper also does a great job at finding interesting properties about more secure deployments, and greatly summarized actionable points for both practitioners and researcher. \n\nNevertheless, I do have a couple of major concerns that I'd like the authors to discuss a bit better. \n\n## Experimental testbed\n\nThe datasets used in the experiments are not always fully clear. Of course authors are using CIFAR-10 (mostly) and a bit of ImageNet, but it is not always clear *how much* of it they are using for the evaluation. \n\nFor example, are Figures 1 and 2 contain some images used for the actual attacks and proof-of-concept evaluation of effectiveness in presence of relaxed assumptions. Are these the only adversarial examples generated? This sounds a bit 'small' in terms of chosen images. \n\nOn line 241, you mention:\n> We use a subset of 50 CIFAR-10 images to evaluate the attack performance.\n\nThis seems quite 'limited', and possibly introducing some unintentional sampling bias in the evaluation that may threaten the empirical validity of the results.\n\nI appreciate that the Appendix has additional settings, but I wonder how much of the study may be affected/threatened by the limited sampling of the dataset for attacks. \n\n\n## Task\n\nThe paper is focused only in the **image classification task**, so it would be interesting to understand whether the same properties/conclusions would hold also in other domains where deep neural networks are successful, for example speech recognition in smart home devices. ",
+                    "limitations_and_societal_impact": "I feel the authors should emphasize more limitations related to the number of adversarial examples generated.",
+                    "ethical_concerns": "None",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [],
+                    "time_spent_reviewing": "5",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_5LCL"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_5LCL"
+                ]
+            },
+            {
+                "id": "Fjg8k_nb53",
+                "original": null,
+                "number": 2,
+                "cdate": 1626414881664,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626414881664,
+                "tmdate": 1629224877304,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Review",
+                "content": {
+                    "rating": "7: Good paper, accept",
+                    "confidence": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.",
+                    "summary": "The paper presents an empirical investigation of existing gradient inversion attacks and defenses in federated learning setting. The authors point out that current attacks make strong assumptions such as knowing batch norm stats or private labels, whose absence would weaken the attacks. The authors also conclude with a list of best practices of doing conducting safe federated learning via comprehensive review and experiments on current defense methods.",
+                    "main_review": "This paper is well written and organized. Advancing state-of-the-art is important, but checking caveats in current methods is critical as well. Summarizing current assumptions made in current gradient inversion attacks makes it easier for future research to design fair and reasonable experiments. The practices lead by experiment results of various defenses are also valuable. However, although the conclusions are interesting, I wonder if the results are strong enough. Instead of doing experiments on a single dataset (CIFAR-10) with a single architecture (ResNet18), I would like to see more diverse settings, either easier (MNIST with MLP) or more complex (ImageNet with deeper ResNets). ",
+                    "limitations_and_societal_impact": "No, the limitations and potential negative societal impact are not clear in Section 6. ",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [],
+                    "time_spent_reviewing": "3",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_PVFu"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_PVFu"
+                ]
+            },
+            {
+                "id": "0LVYS7pkUxj",
+                "original": null,
+                "number": 3,
+                "cdate": 1626487506276,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626487506276,
+                "tmdate": 1626487759890,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Review",
+                "content": {
+                    "rating": "6: Marginally above the acceptance threshold",
+                    "confidence": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.",
+                    "summary": "The authors of this paper provide a systematical analysis for the robustness of federated learning. They first show that current strongest gradient inversion attacks cannot perform well under relaxed assumptions and then demonstrate a new defense that can make the attacks less effective, even under their original assumptions. Sufficient experiments provide strong support for their conclusions. ",
+                    "main_review": "\n1. The authors reveal that the strong assumptions in the current strongest attack may not realistic and demonstrate even the current strongest attack cannot perform well under the relaxed assumption. The conclusions encourage that future research on gradient inversion should be evaluated in a more realistic setting.  \n2. The authors provide some simple methods to improve the robustness of federated learning against gradient inversion attacks. They get strong results with a combination of several simple practices, which can improve the security against the strongest attack under the strong assumption.  \n3. The paper is well organized and easy to understand. The findings and the proposed defenses and be used to evaluate the robustness of future federated learning systems. ",
+                    "limitations_and_societal_impact": "1. Please fix the citation (geiping2020) in Line 89 of the manuscripts. \n2. I like the presentation of this paper: no fancy tricks but deliver clear and practical messages for future research. But the two parts (contribution 1 vs contribution 2, 3) are kind of separate from each other. I am suggesting the authors find a good way to combine them into a single story. \n3. The experiment and analysis are mainly applied to toy datasets with low-resolution images. I am wondering whether those conclusions are still valid on high-resolution images. ",
+                    "ethical_concerns": "None",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [
+                        "Responsible Research Practice (e.g., IRB, documentation, research ethics)",
+                        "I don’t know"
+                    ],
+                    "time_spent_reviewing": "5 hours",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_XbmS"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_XbmS"
+                ]
+            },
+            {
+                "id": "waSdX8cTo-",
+                "original": null,
+                "number": 4,
+                "cdate": 1626793150771,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626793150771,
+                "tmdate": 1626793150771,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Review",
+                "content": {
+                    "rating": "9: Top 15% of accepted NeurIPS papers, strong accept",
+                    "confidence": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.",
+                    "summary": "This paper has empirical study of federated learning with the following contributions:\n1. It evaluates the state-of-the-art gradient attack algorithms under weaker assumptions. For example, attackers do not have access to batch norm statistics and some private labels. Under these weaker assumptions, these attack algorithms perform significantly worse.\n2. It experiments various defense algorithms. For example, gradient pruning, MixUp, Weak-InstaHide, with the current state-of-the-art Carlini et al. 2020 attack algorithm. Further, it designs and evaluates a new method which combines various defense algorithms. Through empirical evaluations, it is shown that when attack batch size is 1, W-InstaHide is highly useful, and when attack batch size increases, the combined gradient pruning+W-InstaHide gives the best result.",
+                    "main_review": "Pros:\n1. This paper demonstrates some practical perspective of the state-of-the-art gradient attack algorithms by removing certain strong assumptions and experimenting in more general conditions. Its empirical result is strong and clear that as soon as these strong assumptions are removed, the SOTA attack algorithms no longer perform that well. That sheds lights on how to improve the security of a federated learning system, i.e., do not share statistics like batch norm or certain private labels.\n2. From a defense perspective, this paper considers a novel scheme which combines various different defense algorithms, such as gradient pruning, MixUp and InstaHide to achieve a better defense performance compared to any single defense algorithm, especially when attack batch size is large.\n3. Previous works either focus on encoding private dataset directly or encoding the gradient information. This paper is a unified review of these two different methods, and combines them to improve the overall defense performance.\n\nCons:\nThe line 233 is a bit confusing: “InstaHide further encodes a MixUp image by randomly flipping its pixel signs. We are only mixing private images in our experiments, which is a weaker version of InstaHide”. Does this mean that W-InstaHide does not use random sign flips? If so, what’s the difference between MixUp and W-InstaHide? I believe there should be a difference between MixUp and W-InstaHide. However, based on the write-up, it’s a bit unclear about such differences and hence confusing. It should be further clarified.",
+                    "limitations_and_societal_impact": "I did not realize any potential negative societal impact of the work.",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [],
+                    "time_spent_reviewing": "6 hours",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_g1LK"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Reviewer_g1LK"
+                ]
+            },
+            {
+                "id": "knHerZqdADx",
+                "original": null,
+                "number": 5,
+                "cdate": 1628556666757,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1628556666757,
+                "tmdate": 1628556894004,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Official_Comment",
+                "content": {
+                    "title": "Thanks for your valuable feedback and a summary of comments",
+                    "comment": "We thank AC and all reviewers for their time and valuable feedback, and for the recognition that our manuscript \"*demonstrates some practical perspective of the state-of-the-art gradient attack algorithms*\", and the \"*empirical result is strong and clear*\". Reviewers also highlight that our evaluation \"*contains many actionable points*\", and ​\"*delivers clear and practical messages for future research*\". \n\n\n\n### **A common concern (Reviewer XbmS Q2 & Reviewer PVFu Q1): evaluation is mainly on CIFAR-10; how about  high-resolution images?**\n\n\nWe've used both CIFAR-10 and ImageNet in the evaluation of strong assumptions (Section 3). However, the current SOTA attacks mainly work on low-resolution images and achieve poor performance on high-resolution images (see Figure 1). Therefore evaluation on low-resolution images makes the most sense in trying to understand whether current attacks can be mitigated.\n\nThe updated manuscript now notes that a systematic evaluation of high-resolution images will be important future work **once stronger attacks are proposed.** We are also happy to incorporate new attacks into our current implementation and evaluations/comparisons. \n\n### **Individual comments**\nWe have summarized other comments and our responses as below (corresponding reviewer IDs are provided in parenthesis). Detailed responses can be found in posts to individual reviewers.\n\n1. **Clarification about the experimental setup**: we’ve clarified the experimental  testbed for each evaluation in the manuscript (Reviewer 5LCL, Q2). We also showed that the selected testbeds do not introduce a strong sampling bias (Reviewer 5LCL, Q3).\n\n2. **Presenting results in an easier setting**: we’ve evaluated attacks and defenses with an easier setting: MNIST + a simple ConvNet (Reviewer PVFu, Q2). The results are consistent with our findings in the manuscript.  \n\n3. **Improving the storytelling**: we’ve proposed a way to improve the current writing to better connect the two parts (contribution 1 vs contribution 2, 3) of the manuscript (Reviewer XbmS, Q2).\n\n4. **Discussing more future work**: we’ve discussed more future works in the updated manuscript, including extending the evaluation to high-resolution images (Reviewer XbmS Q2 & Reviewer PVFu Q1), or to language tasks (Reviewer 5LCL, Q1).\n\n5. We’ve also fixed some typos (Reviewer XbmS, Q3) and rewritten sentences that may cause confusion (Reviewer g1LK, Q1).\n"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper4631/Authors"
+                ]
+            },
+            {
+                "id": "tENjZ-2Qq7n",
+                "original": null,
+                "number": 1,
+                "cdate": 1632776823686,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1632776823686,
+                "tmdate": 1632776823686,
+                "tddate": null,
+                "forum": "0CDKgyYaxC8",
+                "replyto": "0CDKgyYaxC8",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper4631/-/Decision",
+                "content": {
+                    "title": "Paper Decision",
+                    "decision": "Accept (Oral)",
+                    "comment": "The reviewers are satisfied by the responses made by the authors. The authors are strongly encouraged to include the additional experiments and results they provided in the rebuttal phase to their final manuscript."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Program_Chairs"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference/Program_Chairs"
+                ]
+            }
+        ]
+    }
+}
