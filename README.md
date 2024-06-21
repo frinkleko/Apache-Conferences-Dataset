@@ -21,13 +21,13 @@ Here is one conversation example:
 
 Currently, we include the following conferences in our dataset, we will continually add more datasets and release the codes about crawling.
 
-| Conferences                       | Total conversations |
-| --------------------------------- | ------------------- |
-| [ICLR 2022](./data/ICLR2022.json) | 10,210              |
-| [ICLR 2023](./data/ICLR2023.json) | 14,359              |
-| [NIPS 2021](./data/NIPS2021.json) | 10,729              |
-| [NIPS 2022](./data/NIPS2022.json) | 13,157              |
-| [NIPS 2023](./data/NIPS2023.json) | 15,175              |
+| Conferences                          | Total conversations |
+| ------------------------------------ | ------------------- |
+| [ICLR 2022](./data/ICLR2022.json)    | 10,210              |
+| [ICLR 2023](./data/ICLR2023.json)    | 14,359              |
+| [NeurIPS 2021](./data/NIPS2021.json) | 10,729              |
+| [NeurIPS 2022](./data/NIPS2022.json) | 13,157              |
+| [NeurIPS 2023](./data/NIPS2023.json) | 15,175              |
 
 ### Ratings Distribution
 
@@ -37,4 +37,13 @@ We also plot the rating distribution of each conference.
 
 ## Raw results
 
-We will also release the raw collections of papers and reviews, which is in openreview like format. You can find one example [here](./raw_data/example.json).
+We also release the raw collections of papers and reviews, which is in openreview like format. You can find one example [here](./raw_data/example.json).
+
+Full raw data can be downloaded from [./raw_data](./raw_data).
+| Conferences                                               |
+| --------------------------------------------------------- |
+| [ICLR 2022](./raw_data/ICLR.cc_2022_Conference.zip)       |
+| [ICLR 2023](./raw_data/ICLR.cc_2023_Conference.zip)       |
+| [NeurIPS 2021](./raw_data/NeurIPS.cc_2021_Conference.zip) |
+| [NeurIPS 2022](./raw_data/NeurIPS.cc_2022_Conference.zip) |
+| [NeurIPS 2023](./raw_data/NeurIPS.cc_2023_Conference.zip) |
