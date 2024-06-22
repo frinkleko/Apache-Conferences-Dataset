@@ -47,3 +47,13 @@ Full raw data can be downloaded from [./raw_data](./raw_data).
 | [NeurIPS 2021](./raw_data/NeurIPS.cc_2021_Conference.zip) |
 | [NeurIPS 2022](./raw_data/NeurIPS.cc_2022_Conference.zip) |
 | [NeurIPS 2023](./raw_data/NeurIPS.cc_2023_Conference.zip) |
+
+## Build from Scratch
+
+We provide the code for processing the raw data and generating the Apache format dataset. You can find the code in [./code](./code).
+
+After you unzip the raw data, for example, you have `./raw_data/NeruIPS.cc_2021_Conference`, you can run the following command to generate the Apache format dataset.
+
+```bash
+python code/process.py --root_folder_path ./raw_data/NeruIPS.cc_2021_Conference
+```
