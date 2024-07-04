@@ -1,5 +1,5 @@
 # Apache-Conferences-Dataset
-Apache format dataset of AI/DL/ML conferences, including paper abstracts, info and reviewers' ratings. We use it for idea quality measuring and idea proposing.
+Apache format dataset of AI/DL/ML conferences, including paper abstracts, info and reviewers' ratings. We use it for idea quality measuring and idea proposing. See the [Idea king project](https://github.com/frinkleko/Critic-IdeaKing), where we aims to explore the capabilities of large language models (LLMs) in scoring research papers and generating ideas.
 
 ## Format
 
